@@ -1,0 +1,221 @@
+<template name="navbar">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Personal Manager</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Link</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
+
+<!--Register Template -->
+<template name="registration">
+    <h2>Register</h2>
+    <form class="register">
+        <p>Email: <input type="text" name="registeredUserName"></p>
+        <p>Password: <input type="password" name="registeredPassword"></p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</template>
+
+
+<!-- Dashboard Template -->
+<template name="dashboard">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Personal Manager</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="#" class="logout">Logout</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1 class="page-header">Dashboard</h1>
+
+                <div class="row placeholders">
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <h4>{{currentUser.username}}</h4>
+                        <span class="text-muted">Something else</span>
+                    </div>
+                </div>
+
+                <h2 class="sub-header">All Users</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Header</th>
+                            <th>Header</th>
+                            <th>Header</th>
+                            <th>Header</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1,001</td>
+                            <td>Lorem</td>
+                            <td>ipsum</td>
+                            <td>dolor</td>
+                            <td>sit</td>
+                        </tr>
+
+                        <tr>
+                            <td>1,004</td>
+                            <td>dapibus</td>
+                            <td>diam</td>
+                            <td>Sed</td>
+                            <td>nisi</td>
+                        </tr>
+
+                        <tr>
+                            <td>1,013</td>
+                            <td>torquent</td>
+                            <td>per</td>
+                            <td>conubia</td>
+                            <td>nostra</td>
+                        </tr>
+                        <tr>
+                            <td>1,014</td>
+                            <td>per</td>
+                            <td>inceptos</td>
+                            <td>himenaeos</td>
+                            <td>Curabitur</td>
+                        </tr>
+                        <tr>
+                            <td>1,015</td>
+                            <td>sodales</td>
+                            <td>ligula</td>
+                            <td>in</td>
+                            <td>libero</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<!-- Login Page in the Front-->
+<template name="loginPage">
+
+    <div class="container">
+        <div class="loginFormPage">
+        <form role="form" class="loginFormClass">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Login" name="loginUser">
+                    <label for="uLogin" class="input-group-addon glyphicon glyphicon-user"></label>
+                </div>
+            </div> <!-- /.form-group -->
+
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="password" class="form-control" placeholder="Password" name="loginPassword">
+                    <label for="uPassword" class="input-group-addon glyphicon glyphicon-lock"></label>
+                </div> <!-- /.input-group -->
+            </div> <!-- /.form-group -->
+
+            <div class="form-group">
+                <div class="input-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div> <!-- /.input-group -->
+            </div> <!-- /.form-group -->
+
+        </form>
+    </div>
+</div>
+</template>
+
+<!-- Template to show all the users-->
+<template name="profile">
+    <div class="container">
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Text</label>
+        <div class="col-sm-4">
+            <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-search-input" class="col-2 col-form-label">Search</label>
+        <div class="col-sm-4">
+            <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-email-input" class="col-2 col-form-label">Email</label>
+        <div class="col-sm-4">
+            <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-url-input" class="col-2 col-form-label">URL</label>
+        <div class="col-sm-4">
+            <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
+        <div class="col-sm-4">
+            <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-password-input" class="col-2 col-form-label">Password</label>
+        <div class="col-sm-4">
+            <input class="form-control" type="password" value="hunter2" id="example-password-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-number-input" class="col-2 col-form-label">Number</label>
+        <div class="col-sm-4">
+            <input class="form-control" type="number" value="42" id="example-number-input">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+        <div class="col-sm-4">
+            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+        </div>
+    </div>
+    </div>
+
+</template>
