@@ -2,6 +2,11 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
+
+
+    var Lists = new Mongo.Collection('list');
+
+
 if (Meteor.isClient) {
     //Event triggered when the user is registering, saves data to the db.
    Template.registration.events({
@@ -10,7 +15,6 @@ if (Meteor.isClient) {
 
            var userName = event.target.registeredUserName.value;
            var userPassword = event.target.registeredPassword.value;
-           var currentUserID = Meteor.userId();
           Accounts.createUser({
                username: userName,
                password: userPassword,
@@ -59,8 +63,44 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.body.helpers({
+//Private Todos
+    //Todo Entry
+    Template.listTodos.events({
+        'submit .todosEntry': function (event) {
+            var title = event.target.todoItem.value;
+            var currentUser =  Meteor.users.findOne({ _id: Meteor.userId() }).username
+            var titleId = this._id;
+            //Inserting the data in the collection
+            Lists.insert({
+                title: title,
+                createdAt: new Date(),
+                createdBy: currentUser,
+                titleID: titleId
 
+            });
+            event.target.title.value = "";
+            return false;
+        },
+        'click .toggle-checked': function () {
+            Lists.update(this._id, {$set: {checked: !this.checked}});
+        },
+        'click .delete': function () {
+            Lists.remove(this._id);
+        }
     });
 
+//Display the todos on the Todos page (Private todos)
+    Template.listTodos.helpers({
+
+        //Returning a function to display the data from the collections
+        myArray: function () {
+            var currentUser =  Meteor.users.findOne({_id: Meteor.userId() }).username
+            return Lists.find({createdBy: currentUser});
+
+        }
+    });
+
+
+
 }
+
