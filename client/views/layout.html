@@ -1,24 +1,30 @@
 <template name="navbar">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Personal Manager</a>
+                <a class="navbar-brand" href="dashboard">Saptra</a>
             </div>
+            <div id="navbar" class="navbar-collapse collapse">
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Toggle <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="todos">Todos</a></li>
+                            <li><a href="#">Users</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="#" class="logout">Logout</a></li>
                 </ul>
+
             </div>
         </div>
     </nav>
@@ -37,31 +43,6 @@
 
 <!-- Dashboard Template -->
 <template name="dashboard">
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Personal Manager</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="#" class="logout">Logout</a></li>
-                </ul>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                </form>
-            </div>
-        </div>
-    </nav>
-
     <div class="container-fluid">
         <div class="row">
 
@@ -71,7 +52,7 @@
                 <div class="row placeholders">
                     <div class="col-xs-6 col-sm-3 placeholder">
                         <h4>{{currentUser.username}}</h4>
-                        <span class="text-muted">Something else</span>
+                        <span class="text-muted">Role of the User</span>
                     </div>
                 </div>
 
@@ -96,35 +77,6 @@
                             <td>sit</td>
                         </tr>
 
-                        <tr>
-                            <td>1,004</td>
-                            <td>dapibus</td>
-                            <td>diam</td>
-                            <td>Sed</td>
-                            <td>nisi</td>
-                        </tr>
-
-                        <tr>
-                            <td>1,013</td>
-                            <td>torquent</td>
-                            <td>per</td>
-                            <td>conubia</td>
-                            <td>nostra</td>
-                        </tr>
-                        <tr>
-                            <td>1,014</td>
-                            <td>per</td>
-                            <td>inceptos</td>
-                            <td>himenaeos</td>
-                            <td>Curabitur</td>
-                        </tr>
-                        <tr>
-                            <td>1,015</td>
-                            <td>sodales</td>
-                            <td>ligula</td>
-                            <td>in</td>
-                            <td>libero</td>
-                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -168,54 +120,21 @@
 <!-- Template to show all the users-->
 <template name="profile">
     <div class="container">
+        <label for="example-text-input" class="col-2 col-form-label">User</label>
     <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Text</label>
         <div class="col-sm-4">
-            <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+            <input class="form-control" type="text" value="{{currentUser.username}}" id="example-text-input">
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-search-input" class="col-2 col-form-label">Search</label>
-        <div class="col-sm-4">
-            <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-email-input" class="col-2 col-form-label">Email</label>
-        <div class="col-sm-4">
-            <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-url-input" class="col-2 col-form-label">URL</label>
-        <div class="col-sm-4">
-            <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-        <div class="col-sm-4">
-            <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-password-input" class="col-2 col-form-label">Password</label>
-        <div class="col-sm-4">
-            <input class="form-control" type="password" value="hunter2" id="example-password-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-number-input" class="col-2 col-form-label">Number</label>
-        <div class="col-sm-4">
-            <input class="form-control" type="number" value="42" id="example-number-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-        <div class="col-sm-4">
-            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-        </div>
-    </div>
     </div>
 
+    </div>
+
+</template>
+
+<template name="listTodos">
+    <h2>Tods</h2>
+    <form class="register">
+        <input type="text" name="todoItem" placeholder="AddTodo">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
 </template>

@@ -10,12 +10,18 @@ if (Meteor.isClient) {
 
            var userName = event.target.registeredUserName.value;
            var userPassword = event.target.registeredPassword.value;
-
-           Accounts.createUser({
+           var currentUserID = Meteor.userId();
+          Accounts.createUser({
                username: userName,
                password: userPassword,
-           });
-           Router.go('dashboard')
+           }, function (err) {
+              if(err){
+                  console.log(err + "Contact IT");
+              }
+              else {
+                  Router.go('dashboard');
+              }
+          });
        }
    });
 
@@ -28,16 +34,17 @@ if (Meteor.isClient) {
            Meteor.loginWithPassword(userVar, passwordVar, function (err) {
                if(!err){
                    Router.go('dashboard');
+                   console.log("User initiated the login request.");
                }
                else {
-                   return "Contact IT Team"
+                   console.log(err.reason);
                }
            });
        }
    });
 
    //Event triggered when the logout button is clicked
-    Template.dashboard.events({
+    Template.navbar.events({
         'click .logout': function(event){
             event.preventDefault();
             Meteor.logout(function (err) {
@@ -52,7 +59,8 @@ if (Meteor.isClient) {
         }
     });
 
+    Template.body.helpers({
 
-    //Display all the registered users in the Accounts (Collection)
+    });
 
 }

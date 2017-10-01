@@ -5,6 +5,8 @@ Router.map(function() {
     this.route('private'); // this should be protected
     this.route('dashboard', {path: '/dashboard'});
     this.route('profile', {path: '/profile'});
+    this.route('listTodos', {path: '/todos'});
+//    this.route('views', {path: '/users'});
     //this.route('profile',  {path: '/profile'});
 });
 
@@ -23,5 +25,5 @@ loginRequired = function () {
     }
 };
 //Execute the LoginRequired function before login.
-Router.onBeforeAction(loginRequired, {except: '/'});
+Router.onBeforeAction(loginRequired, {except: 'registration'});
 
