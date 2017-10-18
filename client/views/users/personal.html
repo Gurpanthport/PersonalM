@@ -1,7 +1,12 @@
 <template name="personalInfo">
     <div class="container">
         <div class="row">
-            {{currentUser.username}}
+    {{#if isInRole 'admin'}}
+        {{currentUser.username}}
+        {{else}}
+        <h1>Not Authorised</h1>
+    {{/if}}
+
             <main class="col-sm-8">
             </main>
         </div>

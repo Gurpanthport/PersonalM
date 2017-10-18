@@ -2,7 +2,6 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
-
 if (Meteor.isClient) {
     //Event triggered when the user is registering, saves data to the db.
     Template.signup.events({
@@ -60,4 +59,6 @@ if (Meteor.isClient) {
                return Meteor.users.remove(this._id);
        }
     });
+
+
 }

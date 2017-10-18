@@ -22,6 +22,9 @@ Router.route('/personalInfo',function () {
 Router.route('/todos', function(){
    this.render('todos');
 });
+Router.route('/schedule', function () {
+   this.render('schedule');
+});
 
 loginRequired = function () {
     if (!Meteor.user()) {

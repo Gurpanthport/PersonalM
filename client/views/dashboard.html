@@ -1,54 +1,36 @@
 <template name="dashboard">
-    <div class="container">
-        <div class="row">
-
-            <main class="col-sm-8 offset-sm-3 col-md-10 pt-3">
-
-                <section class="row text-center placeholders">
-                    <div class="col-6 col-sm-3 placeholder">
-                        <a href="personalInfo"> <i class="fa fa-id-card fa-5x" aria-hidden="true"></i></a>
-                        <div class="text-muted">Personal Information</div>
-                    </div>
-                    <div class="col-6 col-sm-3 placeholder">
-                        <a href="allusers"><i class="fa fa-users fa-5x" aria-hidden="true"></i></a>
-                        <div class="text-muted">Users</div>
-                    </div>
-                    <div class="col-6 col-sm-3 placeholder">
-                        <i class="fa fa-database fa-5x" aria-hidden="true"></i>
-                        <div class="text-muted">Database</div>
-                    </div>
-                    <div class="col-6 col-sm-3 placeholder">
-                        <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i>
-                        <div class="text-muted">New Project</div>
-                    </div>
-                </section>
-
-                <h2>Reports</h2>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1,001</td>
-                            <td>Lorem</td>
-                            <td>ipsum</td>
-                            <td>dolor</td>
-                            <td>sit</td>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </main>
+    {{# if isInRole 'admin'}}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="well">
+                                <h4 class="text-danger"><span class="label label-danger pull-right">- 9%</span><a href="allusers"><i class="fa fa-users" aria-hidden="true"></i></a>
+                                    All Users</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="well">
+                                <h4 class="text-success"><span class="label label-success pull-right">+ 3%</span><i class="fa fa-database" aria-hidden="true"></i>
+                                     Database</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="well">
+                                <h4 class="text-primary"><span class="label label-primary pull-right">201</span><i class="fa fa-user" aria-hidden="true"></i>
+                                     Personal Info</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="well">
+                                <h4 class="text-success"><span class="label label-success pull-right">+ 24%</span><i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                     New Project</h4>
+                            </div>
+                        </div>
+                    </div><!--/row-->
+                </div><!--/col-12-->
+            </div><!--/row-->
         </div>
-    </div>
-
+        {{/if}}
 </template>
