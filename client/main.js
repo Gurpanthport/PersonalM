@@ -41,7 +41,6 @@ if (Meteor.isClient) {
                    console.log("Contact IT " + err.reason);
                }
            });
-           Meteor.subscribe('users');
        }
     });
     Meteor.subscribe('users');
@@ -51,6 +50,7 @@ if (Meteor.isClient) {
        'usersArray': function () {
            return Meteor.users.find({});
        }
+
     });
 
     //All Users delete functionality
@@ -60,5 +60,5 @@ if (Meteor.isClient) {
        }
     });
 
-
 }
+

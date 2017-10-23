@@ -25,6 +25,9 @@ Router.route('/todos', function(){
 Router.route('/schedule', function () {
    this.render('schedule');
 });
+Router.route('/inventory', function () {
+   this.render('inventory');
+});
 
 loginRequired = function () {
     if (!Meteor.user()) {

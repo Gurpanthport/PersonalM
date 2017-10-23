@@ -1,0 +1,200 @@
+<template name="inventory">
+
+<div class="container">
+
+    <h2>Inventory <i class="fa fa-print" aria-hidden="true"></i></h2>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-md-12 well">
+            <div class="row">
+                {{#each listAllToners}}
+                    <div class="col-md-4"><h4>
+                        {{customTonerName}} :  {{customTonerAmount}}</h4>
+                    </div>
+                {{/each}}
+                <button type="submit" class="btn btn-default"><i class="fa fa-history" aria-hidden="true"></i> View Log</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <form class="inventoryEntry">
+
+            <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                <label for="userName">Name*</label>
+                <input type="text" class="form-control" placeholder="Name" name="tonerGivenName">
+            </div>
+
+            <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                <label for="locationSelect">Location*</label>
+                <select class="form-control" id="exampleSelect1" name="location">
+                    <option></option>
+                    <option>SAP</option>
+                    <option>SHA</option>
+                    <option>SAL</option>
+                </select>
+            </div>
+
+            <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                <label for="anyNotes">Notes</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3" name="notes"></textarea>
+            </div>
+
+            <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                <label for="tonerType">Toner Type*</label>
+                <select class="form-control" name="selectToner">
+
+                    <option></option>
+                {{#each listAllToners}}
+                        <option>
+                            {{customTonerName}}
+                        </option>
+                {{/each}}
+
+                </select>
+            </div>
+            <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                <label for="tbxContactPhone" class="col-sm-2 control-label">Quantity*</label>
+
+                <input type="number" id="quantity" name="quantity" class="form-control input-number"
+                       min="1" max="100">
+            </div>
+            <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                <label for="tbxContactPhone" class="col-sm-2 control-label">Department*</label>
+
+                <input type="text" id="dept" name="dept" class="form-control"
+                       min="1" max="100">
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+
+        </form>
+    </div>
+    </div>
+
+</div>
+
+
+<!--Template to add the toner-->
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addStockModal">
+            Add New Toner
+        </button>
+            <button class="btn btn-default" data-toggle="modal" data-target="#overwriteStockModal">Add Stock</button>
+
+
+            <!-- Modal for adding the Stock (If any New Toner -->
+        <div class="modal fade" id="addStockModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Custom Toner
+                        </h4>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form class="customTonerAdd">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Toner Name</label>
+                                <input type="text" name="customTonerName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Toner Name">
+                                <small id="tonerName" class="text-danger">Only Add if the toner does not exist in the list</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Amount</label>
+                                <input type="number" name="customTonerAmount" class="form-control" id="numberToners" placeholder="Amount">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            Close
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for overwriting the Stock -->
+        <div class="modal fade" id="overwriteStockModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Overwrite Stock
+                        </h4>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form class="overwriteStock">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Toner</label>
+                                <select class="form-control" name="selectTonerOverwrite">
+
+                                    <option></option>
+                                    {{#each listAllToners}}
+                                        <option>
+                                            {{customTonerName}}
+                                        </option>
+                                    {{/each}}
+
+                                </select>
+                                <small id="tonerName" class="text-danger">Only select if overwriting data.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Amount</label>
+                                <input type="number" name="quantityOverwrite" class="form-control" id="numberToners" placeholder="Amount">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            Close
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+        </div>
+    </div>
+
+
+</template>

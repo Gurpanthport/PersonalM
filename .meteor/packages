@@ -24,3 +24,7 @@ iron:router
 fortawesome:fontawesome
 alanning:roles
 dhtmlx:scheduler
+dhtmlx:scheduler-data
+dhtmlx:gantt
+aldeed:collection2-core
+aldeed:autoform

@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard">Personal Manager</a>
+                <a class="navbar-brand" href="dashboard"><i class="fa fa-fighter-jet" aria-hidden="true"></i> Personal Manager</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -16,7 +16,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="todos">Todos</a></li>
-                            <li><a href="">Inventory</a></li>
+                            <li><a href="inventory">Inventory</a></li>
                             <li><a href="schedule">Scheduler</a></li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Nav header</li>
@@ -27,8 +27,8 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {{#if currentUser}}
-                    <li><a href="" class="logout">Logout <i class="fa fa-power-off" aria-hidden="true"></i>
-                    </a></li>
+                        <li><a href="">{{currentUser.username}}</a></li>
+                    <li><a href="" class="logout">Logout <i class="fa fa-power-off" aria-hidden="true"></i></a></li>
                     {{/if}}
                 </ul>
             </div><!--/.nav-collapse -->
